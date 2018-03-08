@@ -1,0 +1,35 @@
+language: generic
+os: osx
+
+osx_image:
+  - xcode9.3beta
+  - xcode9.2
+  - xcode9.1
+  - xcode9
+  - xcode8.3
+  - xcode8
+  - xcode7.3
+  - xcode6.4
+
+env:
+  - PYVER=3.6.4
+  - PYVER=2.7.14
+
+before_install:
+  - brew --version
+  - brew update
+  - brew install pyenv
+  - eval "$(pyenv init -)"
+  - pyenv install -l
+  - pyenv install $PYVER
+  - pyenv global $PYVER
+
+install:
+  - pip install netcdf
+
+script:
+  - which python
+  - which pip
+  - python --version
+  - pip --version
+  - ./main.py
