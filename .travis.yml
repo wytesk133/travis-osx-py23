@@ -10,26 +10,21 @@ env:
 before_install:
   - brew update
   - brew upgrade pyenv
+  - which pyenv
+  - pyenv --version
   - eval "$(pyenv init -)"
   - pyenv versions
   - pyenv install -l
   - pyenv install $PYVER
-  - pyenv versions
   - pyenv global $PYVER
   - pyenv versions
-
-install:
-  - pyenv versions
-  - echo $PATH
   - which python
   - python --version
   - which pip
   - pip --version
+
+install:
   - pip install netCDF4
 
 script:
-  - which python
-  - which pip
-  - python --version
-  - pip --version
   - ./main.py
