@@ -2,8 +2,10 @@ language: generic
 os: osx
 
 env:
-  - PYVER=3.6.4
+  - PYVER=3.6.3
   - PYVER=2.7.14
+  - PYVER=pypy2.7-5.8.0
+  - PYVER=pypy3.5-5.8.0
 
 before_install:
 #  - brew --version
@@ -15,6 +17,12 @@ before_install:
   - pyenv global $PYVER
 
 install:
+  - pyenv init -
+  - echo $PATH
+  - which python
+  - python --version
+  - which pip
+  - pip --version
   - pip install netCDF4
 
 script:
