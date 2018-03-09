@@ -2,12 +2,15 @@ language: generic
 os: osx
 
 env:
-  - PYVER=3.6.4
-  - PYVER=2.7.14
-  - PYVER=pypy2.7-5.8.0
-  - PYVER=pypy3.5-5.8.0
+  - PYVER=2.7
+  - PYVER=3.4
+  - PYVER=3.5
+  - PYVER=3.6
+  - PYVER=pypy2.7
+  - PYVER=pypy3.5
 
 before_install:
+  - brew --version
   - brew update
   - brew upgrade pyenv
   - which pyenv
